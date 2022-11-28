@@ -1,0 +1,91 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>GARLANDS OF GRACE</title>
+  </head>
+  <body>
+    <div class="top-bar">
+      <button class="btn" id="prev-page">
+        <i class="fas fa-arrow-circle-left"></i> Prev Page
+      </button>
+      <button class="btn" id="next-page">
+        Next Page <i class="fas fa-arrow-circle-right"></i>
+      </button>
+      <span class="page-info">
+        Page <span id="page-num"></span> of <span id="page-count"></span>
+      </span>
+    </div>
+
+    <canvas id="pdf-render"></canvas>
+
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script>
+        
+       // const url = '../docs/pdf.pdf';
+const fs = require("fs")
+const pdfparser = require("pdf-parse")
+
+// const pdffile = fs.readFileSync("sample-text.pdf")
+
+// pdfparser(pdffile).then(data => {
+//     // console.log(data.info)
+//     // console.log(data.numpages)
+//     console.log(data.text)
+// }).catch(err => {
+//     console.log(err)
+// })
+
+const pdffile = fs.readFileSync("pdf.pdf")
+
+pdfparser(pdffile).then(data => {
+    console.log(data.info)
+    console.log(data.numpages)
+    // console.log(data.text)
+}).catch(err => {
+    console.log(err)
+})
+
+const getPDFText = async (pdfFile, maxPages) => {
+    let parsedPDF = ""
+    let pdfBuffer = null
+    try {
+        if (fs.existsSync(pdfFile)) {
+            pdfBuffer = fs.readFileSync(pdfFile)
+            if (maxPages) {
+                parsedPDF = await pdfparser(pdfBuffer, { max: maxPages })
+            } else {
+                parsedPDF = await pdfparser(pdfBuffer)
+            }
+            if (parsedPDF) {
+                return parsedPDF.text
+            }
+        }
+    } catch (err) {
+        return err.message
+    }
+}
+
+// getPDFText("sample1-text.pdf").then(text => {
+//     console.log(text)
+// }).catch(err => {
+//     console.log(err)
+// })
+
+// getPDFText("Scanned Text.pdf").then(text => {
+//     console.log(text)
+// }).catch(err => {
+//     console.log(err)
+// })
+ </script>
+  </body>
+</html>

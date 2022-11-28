@@ -9,17 +9,9 @@ const methodOverride = require("method-override");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const fs = require("fs");
+const pdfparser = require("pdf-parse");
 
-/*
-const mongoose = require('mongoose')
-const path = require('path')
-
-
-const methodOverride = require('method-override')
-const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo');
-*/
 const connectDB = require("./config/db");
 
 // Load config
@@ -108,6 +100,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/stories", require("./routes/stories"));
+app.use("/garlands", require("./routes/garlands"));
+
 
 // Routes
 app.use("/", require("./routes/index"));

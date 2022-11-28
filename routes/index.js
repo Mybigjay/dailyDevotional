@@ -3,6 +3,8 @@ const router = express.Router();
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 const Story = require("../models/Story");
+const Garlands = require("../models/Garlands");
+
 // @desc    Login/Landing page
 // @route   GET /
 router.get("/", ensureGuest, (req, res) => {
@@ -10,6 +12,14 @@ router.get("/", ensureGuest, (req, res) => {
     layout: "login",
   });
 });
+
+// @desc    PDF/Landing page
+// @route   GET /
+router.get("/newgarlands", (req, res) => {
+  res.render("newgarlands");
+});
+
+
 
 // @desc    Dashboard
 // @route   GET /dashboard
