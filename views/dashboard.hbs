@@ -1,7 +1,30 @@
-<h6>Dashboard</h6>
+<h6>Garlands Of Grace</h6>
 <h3>Welcome {{name}}</h3>
-<p>Here are your stories</p>
 
+
+<div class="row">
+
+
+
+ <div class="top-bar">
+      <button class="btn" id="prev-page">
+        <i class="fas fa-arrow-circle-left"></i> Prev Page
+      </button>
+      <button class="btn" id="next-page">
+        Next Page <i class="fas fa-arrow-circle-right"></i>
+      </button>
+      <span class="page-info">
+        Page <span id="page-num"></span> of <span id="page-count"></span>
+      </span>
+    </div>
+
+    <canvas id="pdf-render"></canvas>
+
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+     <script src="/main.js"></script>
+
+
+<p>Here are your Notes</p>
 {{#if stories}}
 <table class="striped">
     <thead>
@@ -35,5 +58,7 @@
     </tbody>
 </table>
 {{else}}
-<p>You have not created any stories</p>
+<p>You have not created any notes</p>
 {{/if}}
+
+</div>
