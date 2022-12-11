@@ -1,12 +1,15 @@
-<h6>Garlands Of Grace</h6>
-<h3>Welcome {{name}}</h3>
+<h6>Garlands Of Grace <h3>Welcome {{name}}</h3></h6>
 
 
-<div class="row">
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<div id="canvas" class="row">
+    <div class="center col s12">
 
 
 
- <div class="top-bar">
       <button class="btn" id="prev-page">
         <i class="fas fa-arrow-circle-left"></i> Prev Page
       </button>
@@ -18,10 +21,14 @@
       </span>
     </div>
 
-    <canvas id="pdf-render"></canvas>
+    <canvas id="pdf-render" width="100%"  class="row">Garlands of grace devotionals</canvas>
 
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-     <script src="/main.js"></script>
+     <script src="/pdfviews.js"></script>
+
+     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
 
 
 <p>Here are your Notes</p>

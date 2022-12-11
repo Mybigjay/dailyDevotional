@@ -1,3 +1,11 @@
+
+.container,
+.top-bar{
+
+margin: 0 auto;
+overflow: hidden;
+}
+
 p {
     margin: 10px 0 !important;
   }
@@ -41,11 +49,11 @@ p {
   
   
   .top-bar {
-    background: #333;
+    background: rgb(240, 234, 234);
     color: #fff;
     padding: 1rem;
     margin: 2rem;
-    width:80%;
+
   }
   
   .btn {
@@ -70,3 +78,54 @@ p {
     color: #fff;
     padding: 1rem;
   }
+
+  @media screen and (max-width: 768px) {
+    body, .container {
+      flex-direction: column;
+    }
+}
+#pdf-render{
+  width: 100%;
+}
+
+
+
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+ 
+}
+.theme-light {
+  --color-primary: #0060df;
+  --color-secondary: #fbfbfe;
+  --color-accent: #fd6f53;
+  --font-color: #000000;
+}
+.theme-dark {
+  --color-primary: #17ed90;
+  --color-secondary: #243133;
+  --color-accent: #12cdea;
+  --font-color: #ffffff;
+}
+.container {
+  
+  width: 100%;
+  height: 100%;
+  background: var(--color-secondary);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container h1 {
+  color: var(--font-color);
+}
+.container button {
+  color: var(--font-color);
+  background: var(--color-primary);
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 5px;
+}

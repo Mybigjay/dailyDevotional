@@ -1,6 +1,6 @@
 //const url = "../docs/react.pdf";
-//const url = "/garlandspdf.pdf";
-const url = "/react.pdf";
+const url = "/garlandspdf.pdf";
+//const url = "/react.pdf";
 let pdfDoc = null,
   pageNum = 1,
   pageIsRendering = false,
