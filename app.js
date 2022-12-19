@@ -1,3 +1,4 @@
+
 const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -13,6 +14,7 @@ const fs = require("fs");
 const pdfparser = require("pdf-parse");
 
 const connectDB = require("./config/db");
+
 
 // Load config
 dotenv.config({ path: "./config/config.env" });
@@ -110,9 +112,29 @@ app.use("/", require("./routes/index"));
 
 // goggle redirect http://localhost:3000/auth/google/callback
 
+
+//----------------------deployment----------
+
+__dirname=path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use()
+}else{
+  app.get("/",(req, res) =>{
+    res.send("App is running..");
+  });
+}
+//----------------------deployment----------
+
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(
   PORT,
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 );
+
+
+
+
+
+

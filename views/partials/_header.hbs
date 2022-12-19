@@ -11,6 +11,46 @@
       <li><a href="/dashboard">Garlands of Grace</a></li>
       <li><a href="/stories">Public Stories</a></li>
       <li><a href="/auth/logout">Logout</a></li>
+
+     
+
+
+<h3>change theme</h3>
+<div class="container">
+    <i class="fas fa-adjust"></i>
+       
+        <button id="switch" class="fas fa-adjust" onclick="toggleTheme()">Switch</button>
+    </div>
+    <script>
+        // function to set a given theme/color-scheme
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+
+        // Immediately invoked function to set the theme on initial load
+        (function () {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-dark');
+            } else {
+                setTheme('theme-light');
+            }
+        })();
+    </script>
+  
+
     </ul>
   </div>
+
+
+  
 </nav>
